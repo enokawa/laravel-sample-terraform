@@ -6,9 +6,9 @@ resource "aws_ecr_repository" "sample-nginx" {
   }
 }
 
-resource "aws_ecr_repository" "sample-laravel" {
-  name = "sample/laravel"
+resource "aws_ecr_repository" "sample-php-fpm" {
+  name = "sample/php-fpm"
   tags = {
-    "Name" = "sample/laravel"
+    "Name" = "sample/php-fpm"
   }
 }

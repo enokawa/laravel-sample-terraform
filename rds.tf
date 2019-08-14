@@ -4,7 +4,7 @@ resource "aws_rds_cluster" "sample-db-01" {
   cluster_identifier              = "sample-db-01"
   availability_zones              = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
   master_username                 = "dbuser"
-  master_password                 = "dbuserpasswd"
+  master_password                 = "${random_string.db_password.result}"
   db_subnet_group_name            = "${aws_db_subnet_group.sample-db-subnet-group.name}"
   db_cluster_parameter_group_name = "${aws_rds_cluster_parameter_group.sample-db-pg-cluster.name}"
   vpc_security_group_ids          = ["${aws_security_group.sample-db-sg-01.id}"]

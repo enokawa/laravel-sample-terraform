@@ -36,11 +36,12 @@ resource "aws_lb_listener" "sample-alb-01-http" {
 
 # TargetGroup
 resource "aws_lb_target_group" "sample-alb-01-tg-01" {
-  name        = "sample-alb-01-tg-01"
-  port        = 80
-  protocol    = "HTTP"
-  vpc_id      = "${aws_vpc.sample-vpc-01.id}"
-  target_type = "ip"
+  name                 = "sample-alb-01-tg-01"
+  port                 = 80
+  protocol             = "HTTP"
+  vpc_id               = "${aws_vpc.sample-vpc-01.id}"
+  target_type          = "ip"
+  deregistration_delay = 120
 
   health_check {
     healthy_threshold   = 3
